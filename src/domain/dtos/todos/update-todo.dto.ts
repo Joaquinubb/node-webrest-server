@@ -21,9 +21,6 @@ export class UpdateTodoDto {
     if (!id || isNaN(Number(id)))
       return ["Id is required and must be a valid number", undefined];
 
-    if (completedAt && completedAt.type !== "string")
-      return ["CompletedAt must be a string", undefined];
-
     if (completedAt) {
       const newCompletedAt = new Date(completedAt);
       if (newCompletedAt.toString() === "Invalid Date")
