@@ -21,9 +21,6 @@ export class UpdateTodoDto {
     if (!id || isNaN(Number(id)))
       return ["Id is required and must be a valid number", undefined];
 
-    if (text && text.type !== "string")
-      return ["Text must be a string", undefined];
-
     if (completedAt && completedAt.type !== "string")
       return ["CompletedAt must be a string", undefined];
 

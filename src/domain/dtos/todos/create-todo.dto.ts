@@ -5,7 +5,6 @@ export class CreateTodoDto {
     const { text } = props;
 
     if (!text) return ["Text is required", undefined];
-    if (text.type !== "string") return ["Text must be a string", undefined];
 
     return [undefined, new CreateTodoDto(text)];
   }
