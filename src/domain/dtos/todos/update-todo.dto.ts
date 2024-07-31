@@ -16,17 +16,17 @@ export class UpdateTodoDto {
 
   static update(props: { [key: string]: any }): [string?, UpdateTodoDto?] {
     const { id, text, completedAt } = props;
-    const newCompletedAt = completedAt;
+    let newCompletedAt = completedAt;
 
     if (!id || isNaN(Number(id)))
       return ["Id is required and must be a valid number", undefined];
 
     if (completedAt) {
-      const newCompletedAt = new Date(completedAt);
+      newCompletedAt = new Date(completedAt);
       if (newCompletedAt.toString() === "Invalid Date")
         return ["CompletedAt must be a valid date", undefined];
     }
 
-    return [undefined, new UpdateTodoDto(text, newCompletedAt)];
+    return [undefined, new UpdateTodoDto(id, text, newCompletedAt)];
   }
 }
